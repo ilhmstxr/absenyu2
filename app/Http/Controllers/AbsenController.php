@@ -108,8 +108,8 @@ class AbsenController extends Controller
         $siswa = siswa::where('kelas_id', $id)->get();
         $total = siswa::where('kelas_id', $id)->count();
         // return $guru;
-        $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         $today = today()->format("Y-m-d");
+        $absen = absen::where('kelas_id', $id)->orderby('tanggal', 'desc')->first('tanggal');
         
         if ($absen == null) {
             return view('absen.absenkelas', compact('siswa', 'guru', 'total'));
