@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // coba::class,
             // guru_bk::class,
+            RoleSeeder::class,
             XII_RPL_1::class,
             XII_RPL_2::class,
             userseeder::class,

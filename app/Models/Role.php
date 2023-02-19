@@ -18,4 +18,9 @@ class Role extends Model
     {
         return $this->hasMany('App\Models\Register', 'role');
     }
+
+    public function user()
+    {
+        return $this->hasMany(user::class);
+    }
 }                                                                                                   

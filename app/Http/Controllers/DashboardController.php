@@ -23,6 +23,8 @@ class dashboardcontroller extends Controller
         $jumlah2 = siswa::all()->count();
         $jumlah3 = kelas::all()->count();
         $a = auth()->user()->id;
+        $ab = user::where('id',$a)->with('role')->get();
+        // return $ab;
         $k = siswa::where('kelas_id')->get();
         // $s = siswa::all();
         // $k = kelas::find(1)->with('siswa');

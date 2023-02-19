@@ -20,8 +20,12 @@ return new class extends Migration
             $table->string('password');
             // $table->unsignedBigInteger('data_id');
             // $table->foreign('data_id')->references('id')->on('data');
-            $table->unsignedBigInteger('kelas_id')->nullable();
-            $table->foreign('kelas_id')->references('id')->on('kelas')
+            // $table->unsignedBigInteger('kelas_id')->nullable();
+            // $table->foreign('kelas_id')->references('id')->on('kelas')
+            // ->onUpdate('cascade')
+            // ->onDelete('cascade');
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('role')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             // $table->unsignedBigInteger('siswa_id')->nullable();
@@ -29,7 +33,7 @@ return new class extends Migration
             // ->onUpdate('cascade')
             // ->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('role')->index('role');
+            // $table->string('role')->index('role');
             $table->rememberToken();
             $table->timestamps();
 
