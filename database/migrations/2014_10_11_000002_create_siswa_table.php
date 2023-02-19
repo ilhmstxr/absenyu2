@@ -24,14 +24,14 @@ return new class extends Migration
             // $table->foreign('user_id')->references('id')->on('users')
             //     ->onDelete('cascade')
             //     ->onUpdate('cascade');
-            // $table->unsignedBigInteger('kelas_id');
-            // $table->foreign('kelas_id')->references('id')->on('kelas')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->unsignedBigInteger('kelas_id');
+            $table->foreign('kelas_id')->references('id')->on('kelas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
 
             $table->string('alamat');
             $table->char('jenis_kelamin');

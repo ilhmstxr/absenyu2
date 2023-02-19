@@ -24,6 +24,7 @@ return new class extends Migration
             // $table->foreign('kelas_id')->references('id')->on('kelas')
             // ->onUpdate('cascade')
             // ->onDelete('cascade');
+            // $table->string('role');
             $table->unsignedBigInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('role')
             ->onUpdate('cascade')

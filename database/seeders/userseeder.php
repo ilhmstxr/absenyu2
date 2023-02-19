@@ -72,6 +72,7 @@ class userseeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('12345'),
                 // 'siswa_id' => '1',
+                // 'role' => 'admin'
                 'role_id' => '1'
             ]);
             
@@ -80,6 +81,7 @@ class userseeder extends Seeder
                 'email' => 'admin2@gmail.com',
                 'password' => bcrypt('12345'),
                 // 'siswa_id' => '2',
+                // 'role' => 'admin'
                 'role_id' => '1'
             ]);
 
