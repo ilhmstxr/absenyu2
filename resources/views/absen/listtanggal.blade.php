@@ -39,7 +39,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                @foreach ($d as $s)
+                @foreach ($days[0] as $s)
+                    {{-- <td style="background-color: green">
+                        {{ $s[0] }}
+                    </td>
+                    <td style="background-color: red">
+                        {{ $s[1] }}
+                    </td> --}}
                     <td>
                         {{ $s }}
                     </td>

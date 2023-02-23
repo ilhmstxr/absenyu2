@@ -62,11 +62,33 @@ class DaftarAbsenController extends Controller
             // eak
         }
 
-        foreach($coba as $cok){
+        foreach ($coba as $cok) {
             $awikwok[] = [$cok->absen];
         }
-        // return $awikwok;    
-        return view('absen.listtanggal', compact('d', 'm', 'y', 'guru', 'coba','kls'));
+
+        $bulan = today()->format('Y-m-d');
+        $start = carbon::parse($bulan)->startOfMonth();
+        $end= carbon::parse($bulan)->endOfMonth();
+        $weekday= CarbonPeriod::between($start,$end)->filter('isWeekday');
+        $weekend= CarbonPeriod::between($start,$end)->filter('isWeekend');
+        foreach($weekday as $p){
+            $wd[] = $p->format('d');
+        }
+        foreach($weekend as $p){
+            $wn[] = $p->format('d');
+        }
+        $days = [$wd,$wn];
+        // return $days;
+        // return $d;
+        // return $awikwok;
+        // $weeknd = $d->carbon::setWeekendDays();
+        // $days = carbon::getDays();
+        // $hasil = $d[]->isweekend();
+        // return $hasil;
+        // $week = Carbon::getWeekendDays();
+        // return $days; 
+        // return true;   
+        return view('absen.listtanggal', compact('days', 'm', 'y', 'guru', 'coba', 'kls'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
