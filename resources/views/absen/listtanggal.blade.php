@@ -24,8 +24,8 @@
 
     <table class="table table-striped table-responsive" style="flex-wrap: wrap">
         {{-- <a href="{{ route('pdfkelas') }}" class="btn btn-sm btn-outline-danger mb-20px">PDF</a> --}}
-        <form method="POST" action="{{ route('pdfkelas',$kls) }}">
-            @csrf   
+        <form method="POST" action="{{ route('pdfkelas', $kls) }}">
+            @csrf
             <input type="submit" value="pdf">
         </form>
         <thead class="text-white" style="background-color: #6b5b95">
@@ -39,16 +39,19 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                @foreach ($days[0] as $s)
-                    {{-- <td style="background-color: green">
+                {{-- @foreach ($days[0] as $s) --}}
+                {{-- <td style="background-color: green">
                         {{ $s[0] }}
                     </td>
                     <td style="background-color: red">
                         {{ $s[1] }}
                     </td> --}}
-                    <td>
-                        {{ $s }}
-                    </td>
+                    
+                @foreach ($d as $s)
+                    <td style="background-color: green">{{ $s }}</td>
+                @endforeach
+                @foreach ($wn as $s)
+                    <td style="background-color: red">{{ $s }}</td>
                 @endforeach
             </tr>
         </thead>

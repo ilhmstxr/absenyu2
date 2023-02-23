@@ -71,24 +71,16 @@ class DaftarAbsenController extends Controller
         $end= carbon::parse($bulan)->endOfMonth();
         $weekday= CarbonPeriod::between($start,$end)->filter('isWeekday');
         $weekend= CarbonPeriod::between($start,$end)->filter('isWeekend');
+        // return $weekend;
         foreach($weekday as $p){
             $wd[] = $p->format('d');
         }
         foreach($weekend as $p){
             $wn[] = $p->format('d');
         }
+        // return $wn;
         $days = [$wd,$wn];
-        // return $days;
-        // return $d;
-        // return $awikwok;
-        // $weeknd = $d->carbon::setWeekendDays();
-        // $days = carbon::getDays();
-        // $hasil = $d[]->isweekend();
-        // return $hasil;
-        // $week = Carbon::getWeekendDays();
-        // return $days; 
-        // return true;   
-        return view('absen.listtanggal', compact('days', 'm', 'y', 'guru', 'coba', 'kls'));
+        return view('absen.listtanggal', compact('days','wn','d', 'm', 'y', 'guru', 'coba', 'kls'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
