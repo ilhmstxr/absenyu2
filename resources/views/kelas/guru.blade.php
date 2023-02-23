@@ -30,8 +30,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever>Tambah Data</button>
+                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever>Tambah Data</button> --}}
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">

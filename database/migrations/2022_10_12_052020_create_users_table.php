@@ -24,6 +24,7 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('jenis_kelamin');
+            $table->char('foto_profil')->nullable();
             $table->string('alamat');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('role')->index('role');

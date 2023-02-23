@@ -98,15 +98,16 @@ class RekapabsenController extends Controller
         $sk = Absen::where('siswa_id', $user->id)->where('status', 'sakit')->count();
         $a = Absen::where('siswa_id', $user->id)->where('status', 'alpha')->count();
 
-        $today = today();
-        $dates = [];
-        for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
-            $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
-            $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
-            $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
-            // eak
+        // $today = today();
+        // $dates = [];
+        // for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
+        //     $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
+        //     $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
+        //     $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
+        //     // eak
 
-        }
+        // }
+        $m = today()->format('F');
 
         $tanggal = \Carbon\Carbon::now('Asia/Jakarta')->format('d F Y');
 

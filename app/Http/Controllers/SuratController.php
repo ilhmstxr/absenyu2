@@ -140,6 +140,7 @@ class SuratController extends Controller
 
         $s = absen::where('id',$id)->get();
         // return $s;
+        // setelah up surat auto output suratnya
         return view('absen.hasil',compact('s'));
         // $i->update($req->);
 
