@@ -68,7 +68,8 @@ class SuratController extends Controller
         // $stat = absen::where('dokumen',null)->where('status','sakit')->orwhere('status','izin')->get();
         // $stat = absen::where('status', 'izin')->where('dokumen',null)->where('kelas_id', $id)->
         // orwhere('status', 'sakit')->where('kelas_id', $id)->where('dokumen', null)->with('user')->get();
-        $stat = absen::whereIn('status',$s)->where('dokumen',null)->where('tanggal', $today)->with('user')->get();
+        // $stat = absen::whereIn('status',$s)->where('dokumen',null)->where('tanggal', $today)->with('user')->get();
+        $stat = absen::whereIn('status',$s)->where('dokumen',null)->with('user')->get();
         // return $s;
         // $stat = absen::where('status', 'izin')->orwhere('status', 'sakit')->with('user');
         // $stat->where('dokumen',null)->where('kelas_id', $id)->where('dokumen', null)->where('tanggal', $today)->get();
@@ -137,7 +138,9 @@ class SuratController extends Controller
             'dokumen' => $nama_file
         ]);
 
-        return view('absen.hasil');
+        $s = absen::where('id',$id)->get();
+        // return $s;
+        return view('absen.hasil',compact('s'));
         // $i->update($req->);
 
     }
