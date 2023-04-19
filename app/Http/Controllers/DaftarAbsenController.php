@@ -56,15 +56,20 @@ class DaftarAbsenController extends Controller
         $today = today();
         $dates = [];
         for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
-            $d[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('d');
+            $d[] = Carbon::createFromDate($today->year, $today->month, $i)->format('d');
+            $hari[] = Carbon::createFromDate($today->year, $today->month, $i)->format('D');
             $m = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('m');
             $y = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y');
             // eak
         }
 
+        $wow = [$d,$hari];
+        // return $wow;
+
         foreach ($coba as $cok) {
             $awikwok[] = [$cok->absen];
         }
+
 
         $bulan = today()->format('Y-m-d');
         $start = carbon::parse($bulan)->startOfMonth();
@@ -78,9 +83,10 @@ class DaftarAbsenController extends Controller
         foreach($weekend as $p){
             $wn[] = $p->format('d');
         }
+        // return $d;
         // return $wn;
         $days = [$wd,$wn];
-        return view('absen.listtanggal', compact('days','wn','d', 'm', 'y', 'guru', 'coba', 'kls'));
+        return view('absen.listtanggal', compact('days','wn','d', 'm', 'y', 'guru', 'coba', 'kls','hari','wow'));
         // return view('absenkelas', compact('t', 'guru', 'a'));
     }
 
